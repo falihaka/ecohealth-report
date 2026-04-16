@@ -2,6 +2,7 @@ const mysql = require('mysql2')
 
 const db = mysql.createConnection({
     host: 'localhost',
+    // host: 'endpoint-rds.amazonaws.com',
     user: 'root',
     password: '',
     database: 'ecohealth'
