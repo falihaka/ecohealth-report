@@ -1,9 +1,10 @@
 const db = require('../config/db')
 
-// CREATE
+// CREATE REPORT
 exports.createReport = (req, res) => {
     const { title, description, location } = req.body
-    const image = req.file ? req.file.filename : null
+
+    const image = req.file ? req.file.location : null
 
     const sql = `
         INSERT INTO reports (title, description, location, image_url)
@@ -23,7 +24,7 @@ exports.createReport = (req, res) => {
     })
 }
 
-// READ
+// GET ALL REPORTS
 exports.getReports = (req, res) => {
     db.query('SELECT * FROM reports', (err, results) => {
         if (err) {
