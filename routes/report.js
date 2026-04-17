@@ -12,7 +12,6 @@ const upload = multer({
     storage: multerS3({
         s3: s3,
         bucket: 'ecohealth-images-falih',
-        acl: 'public-read',
         key: function (req, file, cb) {
             cb(null, Date.now() + '-' + file.originalname)
         }
