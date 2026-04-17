@@ -1,6 +1,6 @@
 const db = require('../config/db')
 
-// CREATE REPORT
+// CREATE
 exports.createReport = (req, res) => {
     const { title, description, location } = req.body
 
@@ -24,11 +24,10 @@ exports.createReport = (req, res) => {
     })
 }
 
-// GET ALL REPORTS
+// READ
 exports.getReports = (req, res) => {
-    db.query('SELECT * FROM reports', (err, results) => {
+    db.query('SELECT * FROM reports ORDER BY id DESC', (err, results) => {
         if (err) {
-            console.error(err)
             return res.status(500).json({ error: 'Gagal ambil data' })
         }
 
